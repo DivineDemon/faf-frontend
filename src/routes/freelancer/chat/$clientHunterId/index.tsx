@@ -257,7 +257,7 @@ function FreelancerChatInterface() {
 
   useEffect(() => {
     if (isConnected && chatId) {
-      requestChatHistory(1, 1000); // Load more messages initially
+      requestChatHistory(1, 1000);
     }
   }, [isConnected, chatId, requestChatHistory]);
 

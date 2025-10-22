@@ -286,7 +286,7 @@ function ClientHunterChatInterface() {
 
   useEffect(() => {
     if (isConnected && chatId) {
-      requestChatHistory(1, 1000); // Load more messages initially
+      requestChatHistory(1, 1000);
     }
   }, [isConnected, chatId, requestChatHistory]);
 
@@ -428,8 +428,6 @@ function ClientHunterChatInterface() {
                 })
               )}
               <div ref={messagesEndRef} />
-
-              {/* Image Preview Overlay */}
               {imagePreview && (
                 <div className="absolute inset-0 z-50 flex items-center justify-center rounded-xl bg-black/80 backdrop-blur-sm">
                   <div className="relative max-h-[80vh] max-w-2xl p-4">
