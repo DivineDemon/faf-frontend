@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "biome check --write --unsafe .",
     "preview": "vite preview",
-    "generate:api": "pnpm --env-file=.env rtk-query-codegen-openapi src/openapi-config.ts"
+    "generate:api": "dotenv -- pnpm exec rtk-query-codegen-openapi src/openapi-config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
@@ -23,7 +23,6 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@reduxjs/toolkit": "^2.8.2",
-    "@rtk-query/codegen-openapi": "^2.0.0",
     "@stripe/react-stripe-js": "^4.0.0",
     "@stripe/stripe-js": "^7.9.0",
     "@tailwindcss/vite": "^4.1.10",
@@ -47,11 +46,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.7",
+    "@rtk-query/codegen-openapi": "^2.0.0",
     "@tanstack/router-plugin": "^1.121.34",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
+    "dotenv-cli": "^7.4.2",
+    "esbuild-runner": "^2.2.2",
     "globals": "^16.2.0",
     "openapi-typescript": "^7.8.0",
     "ts-node": "^10.9.2",
