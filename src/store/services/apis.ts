@@ -15,10 +15,7 @@ const injectedRtkApi = api
   })
   .injectEndpoints({
     endpoints: (build) => ({
-      healthCheckGet: build.query<
-        HealthCheckGetApiResponse,
-        HealthCheckGetApiArg
-      >({
+      healthCheckGet: build.query<HealthCheckGetApiResponse, HealthCheckGetApiArg>({
         query: () => ({ url: `/` }),
       }),
       registerUserAuthRegisterPost: build.mutation<
@@ -32,10 +29,7 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ["Authentication"],
       }),
-      loginUserAuthLoginPost: build.mutation<
-        LoginUserAuthLoginPostApiResponse,
-        LoginUserAuthLoginPostApiArg
-      >({
+      loginUserAuthLoginPost: build.mutation<LoginUserAuthLoginPostApiResponse, LoginUserAuthLoginPostApiArg>({
         query: (queryArg) => ({
           url: `/auth/login`,
           method: "POST",
@@ -99,17 +93,16 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ["Client Hunter Management"],
       }),
-      toggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatch:
-        build.mutation<
-          ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiResponse,
-          ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiArg
-        >({
-          query: (queryArg) => ({
-            url: `/client_hunter/toggle_status/${queryArg.clientHunterId}`,
-            method: "PATCH",
-          }),
-          invalidatesTags: ["Client Hunter Management"],
+      toggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatch: build.mutation<
+        ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiResponse,
+        ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiArg
+      >({
+        query: (queryArg) => ({
+          url: `/client_hunter/toggle_status/${queryArg.clientHunterId}`,
+          method: "PATCH",
         }),
+        invalidatesTags: ["Client Hunter Management"],
+      }),
       getClientHunterStatsClientHunterStatsSummaryGet: build.query<
         GetClientHunterStatsClientHunterStatsSummaryGetApiResponse,
         GetClientHunterStatsClientHunterStatsSummaryGetApiArg
@@ -154,17 +147,16 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ["Freelancer Management"],
       }),
-      toggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatch:
-        build.mutation<
-          ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiResponse,
-          ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiArg
-        >({
-          query: (queryArg) => ({
-            url: `/freelancer/toggle_status/${queryArg.freelancerId}`,
-            method: "PATCH",
-          }),
-          invalidatesTags: ["Freelancer Management"],
+      toggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatch: build.mutation<
+        ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiResponse,
+        ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiArg
+      >({
+        query: (queryArg) => ({
+          url: `/freelancer/toggle_status/${queryArg.freelancerId}`,
+          method: "PATCH",
         }),
+        invalidatesTags: ["Freelancer Management"],
+      }),
       getFilterOptionsFreelancerFiltersOptionsGet: build.query<
         GetFilterOptionsFreelancerFiltersOptionsGetApiResponse,
         GetFilterOptionsFreelancerFiltersOptionsGetApiArg
@@ -179,10 +171,7 @@ const injectedRtkApi = api
         query: () => ({ url: `/freelancer/stats/summary` }),
         providesTags: ["Freelancer Management"],
       }),
-      getAllProjectsProjectsGet: build.query<
-        GetAllProjectsProjectsGetApiResponse,
-        GetAllProjectsProjectsGetApiArg
-      >({
+      getAllProjectsProjectsGet: build.query<GetAllProjectsProjectsGetApiResponse, GetAllProjectsProjectsGetApiArg>({
         query: (queryArg) => ({
           url: `/projects/`,
           params: {
@@ -193,10 +182,7 @@ const injectedRtkApi = api
         }),
         providesTags: ["Project", "Freelancer Management"],
       }),
-      createProjectProjectsPost: build.mutation<
-        CreateProjectProjectsPostApiResponse,
-        CreateProjectProjectsPostApiArg
-      >({
+      createProjectProjectsPost: build.mutation<CreateProjectProjectsPostApiResponse, CreateProjectProjectsPostApiArg>({
         query: (queryArg) => ({
           url: `/projects/`,
           method: "POST",
@@ -232,10 +218,7 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ["Project", "Freelancer Management"],
       }),
-      createChatChatsPost: build.mutation<
-        CreateChatChatsPostApiResponse,
-        CreateChatChatsPostApiArg
-      >({
+      createChatChatsPost: build.mutation<CreateChatChatsPostApiResponse, CreateChatChatsPostApiArg>({
         query: (queryArg) => ({
           url: `/chats/`,
           method: "POST",
@@ -243,10 +226,7 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ["Chat Management"],
       }),
-      listUserChatsChatsGet: build.query<
-        ListUserChatsChatsGetApiResponse,
-        ListUserChatsChatsGetApiArg
-      >({
+      listUserChatsChatsGet: build.query<ListUserChatsChatsGetApiResponse, ListUserChatsChatsGetApiArg>({
         query: (queryArg) => ({
           url: `/chats/`,
           params: {
@@ -258,17 +238,11 @@ const injectedRtkApi = api
         }),
         providesTags: ["Chat Management"],
       }),
-      getChatChatsChatIdGet: build.query<
-        GetChatChatsChatIdGetApiResponse,
-        GetChatChatsChatIdGetApiArg
-      >({
+      getChatChatsChatIdGet: build.query<GetChatChatsChatIdGetApiResponse, GetChatChatsChatIdGetApiArg>({
         query: (queryArg) => ({ url: `/chats/${queryArg.chatId}` }),
         providesTags: ["Chat Management"],
       }),
-      updateChatChatsChatIdPut: build.mutation<
-        UpdateChatChatsChatIdPutApiResponse,
-        UpdateChatChatsChatIdPutApiArg
-      >({
+      updateChatChatsChatIdPut: build.mutation<UpdateChatChatsChatIdPutApiResponse, UpdateChatChatsChatIdPutApiArg>({
         query: (queryArg) => ({
           url: `/chats/${queryArg.chatId}`,
           method: "PUT",
@@ -293,10 +267,7 @@ const injectedRtkApi = api
         query: () => ({ url: `/chats/stats/summary` }),
         providesTags: ["Chat Management"],
       }),
-      sendMessageMessagesPost: build.mutation<
-        SendMessageMessagesPostApiResponse,
-        SendMessageMessagesPostApiArg
-      >({
+      sendMessageMessagesPost: build.mutation<SendMessageMessagesPostApiResponse, SendMessageMessagesPostApiArg>({
         query: (queryArg) => ({
           url: `/messages/`,
           method: "POST",
@@ -400,17 +371,16 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ["Payments"],
       }),
-      manualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPost:
-        build.mutation<
-          ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiResponse,
-          ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiArg
-        >({
-          query: (queryArg) => ({
-            url: `/payments/manual-payment-update/${queryArg.paymentIntentId}`,
-            method: "POST",
-          }),
-          invalidatesTags: ["Payments"],
+      manualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPost: build.mutation<
+        ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiResponse,
+        ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiArg
+      >({
+        query: (queryArg) => ({
+          url: `/payments/manual-payment-update/${queryArg.paymentIntentId}`,
+          method: "POST",
         }),
+        invalidatesTags: ["Payments"],
+      }),
       getChatStatusWsStatusChatIdGet: build.query<
         GetChatStatusWsStatusChatIdGetApiResponse,
         GetChatStatusWsStatusChatIdGetApiArg
@@ -421,32 +391,25 @@ const injectedRtkApi = api
     overrideExisting: false,
   });
 export { injectedRtkApi as appApis };
-export type HealthCheckGetApiResponse =
-  /** status 200 Successful Response */ ResponseModelHealthBase;
+export type HealthCheckGetApiResponse = /** status 200 Successful Response */ ResponseModelHealthBase;
 export type HealthCheckGetApiArg = void;
-export type RegisterUserAuthRegisterPostApiResponse =
-  /** status 201 Successful Response */ UserWithToken;
+export type RegisterUserAuthRegisterPostApiResponse = /** status 201 Successful Response */ UserWithToken;
 export type RegisterUserAuthRegisterPostApiArg = {
   userCreate: UserCreate;
 };
-export type LoginUserAuthLoginPostApiResponse =
-  /** status 200 Successful Response */ LoginResponse;
+export type LoginUserAuthLoginPostApiResponse = /** status 200 Successful Response */ LoginResponse;
 export type LoginUserAuthLoginPostApiArg = {
   userLogin: UserLogin;
 };
-export type GetCurrentUserProfileUserMeGetApiResponse =
-  /** status 200 Successful Response */ UserRead;
+export type GetCurrentUserProfileUserMeGetApiResponse = /** status 200 Successful Response */ UserRead;
 export type GetCurrentUserProfileUserMeGetApiArg = void;
-export type UpdateCurrentUserProfileUserMePutApiResponse =
-  /** status 200 Successful Response */ UserRead;
+export type UpdateCurrentUserProfileUserMePutApiResponse = /** status 200 Successful Response */ UserRead;
 export type UpdateCurrentUserProfileUserMePutApiArg = {
   userUpdate: UserUpdate;
 };
-export type RefreshAccessTokenUserRefreshPostApiResponse =
-  /** status 200 Successful Response */ UserWithToken;
+export type RefreshAccessTokenUserRefreshPostApiResponse = /** status 200 Successful Response */ UserWithToken;
 export type RefreshAccessTokenUserRefreshPostApiArg = void;
-export type ChangePasswordUserChangePasswordPostApiResponse =
-  /** status 200 Successful Response */ object;
+export type ChangePasswordUserChangePasswordPostApiResponse = /** status 200 Successful Response */ object;
 export type ChangePasswordUserChangePasswordPostApiArg = {
   passwordChange: PasswordChange;
 };
@@ -455,18 +418,16 @@ export type GetClientHunterClientHunterClientHunterIdGetApiResponse =
 export type GetClientHunterClientHunterClientHunterIdGetApiArg = {
   clientHunterId: number;
 };
-export type UpdateClientHunterClientHunterClientHunterIdPutApiResponse =
-  /** status 200 Successful Response */ UserRead;
+export type UpdateClientHunterClientHunterClientHunterIdPutApiResponse = /** status 200 Successful Response */ UserRead;
 export type UpdateClientHunterClientHunterClientHunterIdPutApiArg = {
   clientHunterId: number;
   userUpdate: UserUpdate;
 };
 export type ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiResponse =
   /** status 200 Successful Response */ StatusToggleResponse;
-export type ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiArg =
-  {
-    clientHunterId: number;
-  };
+export type ToggleClientHunterStatusClientHunterToggleStatusClientHunterIdPatchApiArg = {
+  clientHunterId: number;
+};
 export type GetClientHunterStatsClientHunterStatsSummaryGetApiResponse =
   /** status 200 Successful Response */ ClientHunterStatsResponse;
 export type GetClientHunterStatsClientHunterStatsSummaryGetApiArg = void;
@@ -495,35 +456,30 @@ export type UpdateFreelancerFreelancerFreelancerIdPutApiArg = {
 };
 export type ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiResponse =
   /** status 200 Successful Response */ StatusToggleResponse;
-export type ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiArg =
-  {
-    freelancerId: number;
-  };
+export type ToggleFreelancerStatusFreelancerToggleStatusFreelancerIdPatchApiArg = {
+  freelancerId: number;
+};
 export type GetFilterOptionsFreelancerFiltersOptionsGetApiResponse =
   /** status 200 Successful Response */ FilterOptionsResponse;
 export type GetFilterOptionsFreelancerFiltersOptionsGetApiArg = void;
 export type GetFreelancerStatsFreelancerStatsSummaryGetApiResponse =
   /** status 200 Successful Response */ FreelancerStatsResponse;
 export type GetFreelancerStatsFreelancerStatsSummaryGetApiArg = void;
-export type GetAllProjectsProjectsGetApiResponse =
-  /** status 200 Successful Response */ ProjectRead[];
+export type GetAllProjectsProjectsGetApiResponse = /** status 200 Successful Response */ ProjectRead[];
 export type GetAllProjectsProjectsGetApiArg = {
   skip?: number;
   limit?: number;
   freelancerId?: number | null;
 };
-export type CreateProjectProjectsPostApiResponse =
-  /** status 200 Successful Response */ ProjectRead;
+export type CreateProjectProjectsPostApiResponse = /** status 200 Successful Response */ ProjectRead;
 export type CreateProjectProjectsPostApiArg = {
   projectCreate: ProjectCreate;
 };
-export type GetProjectByIdProjectsProjectIdGetApiResponse =
-  /** status 200 Successful Response */ ProjectRead;
+export type GetProjectByIdProjectsProjectIdGetApiResponse = /** status 200 Successful Response */ ProjectRead;
 export type GetProjectByIdProjectsProjectIdGetApiArg = {
   projectId: number;
 };
-export type UpdateProjectProjectsProjectIdPutApiResponse =
-  /** status 200 Successful Response */ ProjectRead;
+export type UpdateProjectProjectsProjectIdPutApiResponse = /** status 200 Successful Response */ ProjectRead;
 export type UpdateProjectProjectsProjectIdPutApiArg = {
   projectId: number;
   projectUpdate: ProjectUpdate;
@@ -533,13 +489,11 @@ export type DeleteProjectProjectsProjectIdDeleteApiResponse =
 export type DeleteProjectProjectsProjectIdDeleteApiArg = {
   projectId: number;
 };
-export type CreateChatChatsPostApiResponse =
-  /** status 201 Successful Response */ ChatRead;
+export type CreateChatChatsPostApiResponse = /** status 201 Successful Response */ ChatRead;
 export type CreateChatChatsPostApiArg = {
   chatCreate: ChatCreate;
 };
-export type ListUserChatsChatsGetApiResponse =
-  /** status 200 Successful Response */ ChatList;
+export type ListUserChatsChatsGetApiResponse = /** status 200 Successful Response */ ChatList;
 export type ListUserChatsChatsGetApiArg = {
   /** Filter by archive status for initiator */
   isArchivedByInitiator?: boolean | null;
@@ -550,32 +504,26 @@ export type ListUserChatsChatsGetApiArg = {
   /** Page size */
   size?: number;
 };
-export type GetChatChatsChatIdGetApiResponse =
-  /** status 200 Successful Response */ ChatWithParticipants;
+export type GetChatChatsChatIdGetApiResponse = /** status 200 Successful Response */ ChatWithParticipants;
 export type GetChatChatsChatIdGetApiArg = {
   chatId: number;
 };
-export type UpdateChatChatsChatIdPutApiResponse =
-  /** status 200 Successful Response */ ChatRead;
+export type UpdateChatChatsChatIdPutApiResponse = /** status 200 Successful Response */ ChatRead;
 export type UpdateChatChatsChatIdPutApiArg = {
   chatId: number;
   chatUpdate: ChatUpdate;
 };
-export type ToggleChatArchiveChatsChatIdToggleArchivePatchApiResponse =
-  /** status 200 Successful Response */ ChatRead;
+export type ToggleChatArchiveChatsChatIdToggleArchivePatchApiResponse = /** status 200 Successful Response */ ChatRead;
 export type ToggleChatArchiveChatsChatIdToggleArchivePatchApiArg = {
   chatId: number;
 };
-export type GetChatStatsChatsStatsSummaryGetApiResponse =
-  /** status 200 Successful Response */ ChatStats;
+export type GetChatStatsChatsStatsSummaryGetApiResponse = /** status 200 Successful Response */ ChatStats;
 export type GetChatStatsChatsStatsSummaryGetApiArg = void;
-export type SendMessageMessagesPostApiResponse =
-  /** status 201 Successful Response */ MessageRead;
+export type SendMessageMessagesPostApiResponse = /** status 201 Successful Response */ MessageRead;
 export type SendMessageMessagesPostApiArg = {
   messageCreate: MessageCreate;
 };
-export type GetChatMessagesMessagesChatChatIdGetApiResponse =
-  /** status 200 Successful Response */ MessageList;
+export type GetChatMessagesMessagesChatChatIdGetApiResponse = /** status 200 Successful Response */ MessageList;
 export type GetChatMessagesMessagesChatChatIdGetApiArg = {
   chatId: number;
   /** Page number */
@@ -583,13 +531,11 @@ export type GetChatMessagesMessagesChatChatIdGetApiArg = {
   /** Page size */
   size?: number;
 };
-export type GetMessageMessagesMessageIdGetApiResponse =
-  /** status 200 Successful Response */ MessageWithSender;
+export type GetMessageMessagesMessageIdGetApiResponse = /** status 200 Successful Response */ MessageWithSender;
 export type GetMessageMessagesMessageIdGetApiArg = {
   messageId: number;
 };
-export type SearchMessagesMessagesSearchGetApiResponse =
-  /** status 200 Successful Response */ MessageList;
+export type SearchMessagesMessagesSearchGetApiResponse = /** status 200 Successful Response */ MessageList;
 export type SearchMessagesMessagesSearchGetApiArg = {
   /** Search query */
   query: string;
@@ -612,31 +558,26 @@ export type GetPaymentIntentPaymentsPaymentIntentPaymentIntentIdGetApiResponse =
 export type GetPaymentIntentPaymentsPaymentIntentPaymentIntentIdGetApiArg = {
   paymentIntentId: string;
 };
-export type GetUserPaymentsPaymentsUserPaymentsGetApiResponse =
-  /** status 200 Successful Response */ PaymentRead[];
+export type GetUserPaymentsPaymentsUserPaymentsGetApiResponse = /** status 200 Successful Response */ PaymentRead[];
 export type GetUserPaymentsPaymentsUserPaymentsGetApiArg = void;
-export type StripeWebhookPaymentsWebhookPostApiResponse =
-  /** status 200 Successful Response */ WebhookResponse;
+export type StripeWebhookPaymentsWebhookPostApiResponse = /** status 200 Successful Response */ WebhookResponse;
 export type StripeWebhookPaymentsWebhookPostApiArg = void;
 export type GetReceiptUrlPaymentsReceiptPaymentIdGetApiResponse =
   /** status 200 Successful Response */ ReceiptUrlResponse;
 export type GetReceiptUrlPaymentsReceiptPaymentIdGetApiArg = {
   paymentId: number;
 };
-export type GetPaymentConfigPaymentsConfigGetApiResponse =
-  /** status 200 Successful Response */ PaymentConfigResponse;
+export type GetPaymentConfigPaymentsConfigGetApiResponse = /** status 200 Successful Response */ PaymentConfigResponse;
 export type GetPaymentConfigPaymentsConfigGetApiArg = void;
 export type CheckPaymentStatusPaymentsCheckPaymentStatusPostApiResponse =
   /** status 200 Successful Response */ PaymentStatusResponse;
 export type CheckPaymentStatusPaymentsCheckPaymentStatusPostApiArg = void;
 export type ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiResponse =
   /** status 200 Successful Response */ ManualPaymentUpdateResponse;
-export type ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiArg =
-  {
-    paymentIntentId: string;
-  };
-export type GetChatStatusWsStatusChatIdGetApiResponse =
-  /** status 200 Successful Response */ ChatStatusResponse;
+export type ManualPaymentUpdatePaymentsManualPaymentUpdatePaymentIntentIdPostApiArg = {
+  paymentIntentId: string;
+};
+export type GetChatStatusWsStatusChatIdGetApiResponse = /** status 200 Successful Response */ ChatStatusResponse;
 export type GetChatStatusWsStatusChatIdGetApiArg = {
   chatId: string;
 };
