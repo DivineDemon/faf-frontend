@@ -172,7 +172,7 @@ function ClientHunterProfile() {
   const handlePayNow = () => {
     dispatch(
       showModal({
-        amount: 5000,
+        amount: 10000,
         description: "Premium Access - Find a Freelancer Platform",
       }),
     );
@@ -392,7 +392,7 @@ function ClientHunterProfile() {
           </div>
         </MaxWidthWrapper>
       </div>
-      <PaymentModal amount={5000} description="Premium Access - Find a Freelancer Platform" />
+      <PaymentModal amount={10000} description="Premium Access - Find a Freelancer Platform" />
     </>
   );
 }

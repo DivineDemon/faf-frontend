@@ -409,7 +409,8 @@ export type UpdateCurrentUserProfileUserMePutApiArg = {
 };
 export type RefreshAccessTokenUserRefreshPostApiResponse = /** status 200 Successful Response */ UserWithToken;
 export type RefreshAccessTokenUserRefreshPostApiArg = void;
-export type ChangePasswordUserChangePasswordPostApiResponse = /** status 200 Successful Response */ object;
+export type ChangePasswordUserChangePasswordPostApiResponse =
+  /** status 200 Successful Response */ PasswordChangeResponse;
 export type ChangePasswordUserChangePasswordPostApiArg = {
   passwordChange: PasswordChange;
 };
@@ -620,6 +621,7 @@ export type UserCreate = {
   first_name: string;
   last_name: string;
   phone?: string | null;
+  /** Password must be between 8 and 72 characters */
   password: string;
   user_type: string;
   image_url?: string | null;
@@ -642,6 +644,7 @@ export type LoginResponse = {
 };
 export type UserLogin = {
   email: string;
+  /** Password cannot exceed 72 characters */
   password: string;
 };
 export type UserUpdate = {
@@ -652,8 +655,14 @@ export type UserUpdate = {
   profile_picture?: string | null;
   is_active?: boolean | null;
 };
+export type PasswordChangeResponse = {
+  message: string;
+  status?: string;
+};
 export type PasswordChange = {
+  /** Current                                     password cannot exceed 72 characters */
   current_password: string;
+  /** New                                 password must be between 8 and 72 characters */
   new_password: string;
 };
 export type FreelancerProfileSummary = {
@@ -745,10 +754,14 @@ export type FreelancerCompleteUpdate = {
   is_available?: boolean | null;
   country?: string | null;
 };
+export type RangeValue = {
+  min: number;
+  max: number;
+};
 export type FilterOptionsResponse = {
   skills: string[];
-  hourly_rate_range: object;
-  experience_range: object;
+  hourly_rate_range: RangeValue;
+  experience_range: RangeValue;
 };
 export type FreelancerStatsResponse = {
   total_freelancers: number;
@@ -906,6 +919,12 @@ export type PaymentIntentResponse = {
   currency: string;
   status: string;
 };
+export type PaymentMetadata = {
+  user_id?: string | null;
+  payment_type?: string | null;
+  description?: string | null;
+  custom_data?: string | null;
+};
 export type PaymentIntentCreate = {
   /** Amount in cents */
   amount: number;
@@ -914,7 +933,7 @@ export type PaymentIntentCreate = {
   /** Payment description */
   description?: string | null;
   /** Additional metadata */
-  metadata?: object | null;
+  metadata?: PaymentMetadata | null;
 };
 export type PaymentRead = {
   id: number;
