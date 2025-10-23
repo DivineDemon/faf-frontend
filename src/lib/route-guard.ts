@@ -36,7 +36,13 @@ export function hasUserPaid(): boolean {
 }
 
 export function triggerPaymentModal(action?: () => void): void {
-  store.dispatch(showModal(action));
+  store.dispatch(
+    showModal({
+      action,
+      amount: 10000,
+      description: "Platform Access Fee - Unlock premium features and chat functionality",
+    }),
+  );
 }
 
 export function checkPaymentAndRedirect(pathname: string): boolean {

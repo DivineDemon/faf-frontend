@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import { z } from "zod";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
-import PaymentModal from "@/components/payment/payment-modal";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import ImageUploader from "@/components/ui/image-uploader";
@@ -392,7 +391,6 @@ function ClientHunterProfile() {
           </div>
         </MaxWidthWrapper>
       </div>
-      <PaymentModal amount={10000} description="Premium Access - Find a Freelancer Platform" />
     </>
   );
 }

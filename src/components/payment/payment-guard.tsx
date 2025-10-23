@@ -73,10 +73,7 @@ function PaymentGuard({ children }: PaymentGuardProps) {
   return (
     <Elements stripe={stripePromise}>
       {children}
-      <PaymentModal
-        amount={config.platform_fee_amount / 100}
-        description="Platform Access Fee - Unlock premium features and chat functionality"
-      />
+      <PaymentModal />
     </Elements>
   );
 }

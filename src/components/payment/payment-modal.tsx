@@ -9,19 +9,14 @@ import { useCreatePaymentIntentPaymentsCreatePaymentIntentPostMutation } from "@
 import { hideModal } from "@/store/slices/payment";
 import { useTheme } from "../theme-provider";
 
-interface PaymentModalProps {
-  amount: number;
-  description: string;
-}
-
-function PaymentModal({ amount, description }: PaymentModalProps) {
+function PaymentModal() {
   const stripe = useStripe();
   const { theme } = useTheme();
   const elements = useElements();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const { showModal, pendingAction } = useSelector((state: RootState) => state.payment);
+  const { showModal, pendingAction, amount, description } = useSelector((state: RootState) => state.payment);
   const [createPaymentIntent] = useCreatePaymentIntentPaymentsCreatePaymentIntentPostMutation();
 
   const handleClose = () => {
